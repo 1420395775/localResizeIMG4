@@ -89,6 +89,13 @@ lrz('./xxx/xx/x.png')
 
 * 前端生成的结果中有一个`base64Len`，这是字符串的长度，后端应该核对以确认是否提交完整。
 
+
+```
+//php示例：
+$img = base64_decode($_POST['img']);
+$img = imagecreatefromstring($img);
+```
+
 # API
 
 ## 参数
