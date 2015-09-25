@@ -194,9 +194,12 @@ IE9以上及大部分非IE浏览器（chrome、微信什么的）
 * Q: 想要商用可以吗？
 * A: 没问题，但请留意issue里已知的问题。
 
-# 开发
+## lrz的历史
+* lrz1，基于jquery。
+* lrz2，基于原生js，却是用coffeescript写的 Orz, 有UI，存在已知BUG。
+* lrz3，基于原生js，提供pc & mobile版本，修复BUG和疑问，再一次重构了代码，移除了UI，仅作为纯粹的工具，方便二次开发。
+* lrz4，基于原生js，已升级到稳定版本，推荐使用。
 
-[想要参与|定制|了解源码请点击这里](https://github.com/think2011/localResizeIMG4/wiki/%E5%BC%80%E5%8F%91)
 
 # 感谢
 
