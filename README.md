@@ -91,6 +91,74 @@ lrz('./xxx/xx/x.png')
 
 # API
 
+## 参数
+```js
+lrz(file, [options]);
+```
+
+* `file` 通过 `input:file` 得到的文件，或者直接传入图片路径
+
+* `[options]` 这个参数允许忽略
+  * `options.width {Number}` 图片最大不超过的宽度，默认为原图宽度，高度不设时会适应宽度。
+  * `options.height {Number}` 同上
+  * `options.quality {Number}` 图片压缩质量，取值 0 - 1，默认为0.7
+
+```js
+lrz.version
+```
+
+* 显示当前版本号
+
+## 返回结果
+返回值是一个`promise`对象
+
+* `then(rst)`
+  * `rst.origin` 也就是file对象，里面存了一些图片文件的信息，例如大小，日期等。
+  * `rst.base64` 生成后的图片base64，后端可以处理此字符串为图片
+  * `rst.base64Len` 生成后的图片的大小，后端可以通过此值来校验是否传输完整
+
+* `catch(err)`
+
+* `always()`
+
+## 一个例子
+```js
+document.querySelector('input').addEventListener('change', function () {
+    // this.files[0] 是用户选择的文件
+    lrz(this.files[0], {width: 1024})
+        .then(function (rst) {
+            // 把处理的好的图片给用户看看呗
+            var img = new Image();
+            img.src = rst.base64;
+
+            img.onload = function () {
+                document.body.appendChild(img);
+            };
+
+            return rst;
+        })
+        .then(function (rst) {
+            // 这里该上传给后端啦
+            // 伪代码：ajax(rst.base64)..
+
+            return rst;
+        })
+        .then(function (rst) {
+            // 如果您需要，一直then下去都行
+            // 因为是Promise对象，可以很方便组织代码 \(^o^)/~
+        })
+        .catch(function (err) {
+            // 万一出错了，这里可以捕捉到错误信息
+            // 而且以上的then都不会执行
+
+            alert(err);
+        })
+        .always(function () {
+            // 不管是成功失败，这里都会执行
+        });
+});
+```
+
 [具体参数说明请查看WIKI。](https://github.com/think2011/localResizeIMG4/wiki)
 
 # 兼容性
