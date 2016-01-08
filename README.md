@@ -1,17 +1,9 @@
-[![Build Status](https://travis-ci.org/think2011/localResizeIMG4.svg?branch=master)](https://travis-ci.org/think2011/localResizeIMG4)
+
 [![npm version](https://img.shields.io/npm/v/lrz.svg)](https://www.npmjs.com/package/lrz)
 [![npm](https://img.shields.io/npm/l/express.svg)]()
 
-# 演示一下
-
-![](http://think2011.github.io/localResizeIMG4/test/demo.gif)
-
-# 自己试试
-
-![](http://think2011.github.io/localResizeIMG4/test/qrcode.png)
-
-
-[点我直接进入演示页面](http://think2011.github.io/localResizeIMG4/test/)
+# 说明
+fork自[think2011/localResizeIMG](https://github.com/think2011/localResizeIMG)。
 
 
 # 介绍说明
