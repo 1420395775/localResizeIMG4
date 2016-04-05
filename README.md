@@ -3,7 +3,9 @@
 [![npm](https://img.shields.io/npm/l/express.svg)]()
 
 # 说明
-fork自[think2011/localResizeIMG](https://github.com/think2011/localResizeIMG)。
+移动h5开发避免不了上传图片，一般我们使用html自带的控件input或者使用微信上传API。但微信上传API不是任何地方都可以使用的，使用html自带的控件input上传又免不了图片体积太大，上传不稳定。localResizeIMG4就是为此而生的。
+
+localResizeIMG4的详细使用详见博文：[移动端使用localResizeIMG4压缩图片](http://www.cnblogs.com/52fhy/p/5355601.html)。`lrz`目录是博文里讲解的示例代码。
 
 
 # 介绍说明
