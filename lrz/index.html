@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>移动端使用localResizeIMG4压缩图片</title>
+	<script src="./dist/lrz.bundle.js"></script>
+	<script src="./dist/zepto.min.js"></script>
+</head>
+
+<body>
+    上传图片<input type="file" capture="camera" accept="image/*" name="logo" id="file">
+	<script>
+	$(function(){
+		$('input[name=logo]').on('change', function(){
+			 lrz(this.files[0], {width: 640})
+				.then(function (rst) {
+				
+					console.log(rst);
+
+					$.ajax({
+						url: 'upload.php',
+						type: 'post',
+						data: {img: rst.base64},
+						dataType: 'json',
+						timeout: 200000,
+						success: function (response) {
+							if (response.ecd == '0') {
+								alert('成功');
+								return true;
+							} else {
+								return alert(response.msg);
+							}
+						},
+
+						error: function (jqXHR, textStatus, errorThrown) {
+							
+							if (textStatus == 'timeout') {
+								a_info_alert('请求超时');
+
+								return false;
+							}
+
+							alert(jqXHR.responseText);
+						}
+					});
+						
+				})
+				.catch(function (err) {
+
+				})
+				.always(function () {
+
+				});
+		});
+	});
+	</script>
+</body>
